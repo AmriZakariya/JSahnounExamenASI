@@ -10,6 +10,8 @@ import { Observable,Subject } from "rxjs";
 })
 export class MovieComponent implements OnInit {
   movies?: Movie[];
+  moviesArray?: any[] ;
+
   currentMovie?: Movie;
   currentIndex = -1;
   title = '';
@@ -26,6 +28,7 @@ export class MovieComponent implements OnInit {
       .subscribe(
         data => {
           this.movies = data;  
+          this.moviesArray =  Array.of(this.movies);
           console.log(data);
         },
         
